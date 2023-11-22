@@ -6,10 +6,11 @@ html
     -webkit-text-size-adjust: 100%;
     background-color: #CCD6DD;
     font-size: 16px;
-    background-color: gainsboro;
+    background-color: #f3f3f3;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #343434;
 }
 
 body
@@ -26,6 +27,22 @@ body
     };
 }
 
+button 
+{
+    cursor: pointer;
+    font-size: 0.8rem;
+    border: 0.05rem solid black;
+    letter-spacing: 0.1rem;
+    min-width: 3rem;
+    white-space: normal;
+    text-align: center;
+    background: #343434;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    height: 2rem;
+    border-radius: 1rem;
+    color: #fff;
+}
+
 #big-title
 {
     grid-row: 1 / 2;
@@ -38,6 +55,7 @@ body
 
 #search-bar-div
 {
+    background: #8e8b82;
     grid-row: 2 / 3;
     grid-column: 1 / 2;
     display: flex;
@@ -56,16 +74,12 @@ body
 
 #new-del-button-div
 {
+    background: #8e8b82;
     grid-row: 2 / 3;
     grid-column: 2 / 3;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
-    > button
-    {
-        background-color: cadetblue;
-    }
 }
 
 #content-parent-div
@@ -76,6 +90,7 @@ body
     flex-direction: column;
     align-items: center;
     font-size: 1.25rem;
+    background: #ece5d6;
 }
 
 #temp-book
