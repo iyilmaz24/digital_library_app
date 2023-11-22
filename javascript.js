@@ -41,7 +41,7 @@ addEventListener("DOMContentLoaded", () =>
         };
     }
 
-    sampleBook  = new Book("Harry Potter", "Rowling", "500", false);
+    sampleBook = new Book("Harry Potter", "Rowling", "500", false);
     sampleBook2 = new Book("Odin Project", "Open-Source", "3", true);
     addBook(sampleBook);
     addBook(sampleBook2)
@@ -49,6 +49,6 @@ addEventListener("DOMContentLoaded", () =>
 
     tempBook.textContent = sampleBook.getTitle() + sampleBook.getAuthor();
     tempBookSubtext.textContent = sampleBook.getSubtext();
-    displayLibrary()
+    displayLibrary();
 
 });
