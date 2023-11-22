@@ -12,7 +12,6 @@ addEventListener("DOMContentLoaded", () =>
         this.author = author;
         this.pages = pages + " pages";
         this.status = (status) ? "finished/reading book" : "book unread";
-
         this.info = () => {
             return this.title + " by " + this.author + ", " + this.pages + ", " + this.status;
         }
@@ -29,7 +28,7 @@ addEventListener("DOMContentLoaded", () =>
         for(let i = 0; i < myLibrary.length; i++)
         {
             tempLibrary.innerHTML += (myLibrary[i].info()) + "<br>";
-        }
+        };
     }
 
     sampleBook  = new Book("Harry Potter", "Rowling", "500", false);
