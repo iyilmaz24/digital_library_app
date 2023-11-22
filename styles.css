@@ -16,7 +16,7 @@ body
 {
     margin: 5rem;
     height: min(90vh);
-    width: min(90vh);
+    width: min(90vw);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 2fr 8fr;

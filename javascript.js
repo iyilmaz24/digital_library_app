@@ -1,7 +1,8 @@
 addEventListener("DOMContentLoaded", () =>
 {
 
-    tempDiv = document.getElementById("temp-result");
+    tempBook = document.getElementById("temp-book");
+    tempBookSubtext = document.getElementById("temp-book-subtext");
     tempLibrary = document.getElementById("temp-library");
 
     const myLibrary = [];
@@ -14,6 +15,15 @@ addEventListener("DOMContentLoaded", () =>
         this.status = (status) ? "finished/reading book" : "book unread";
         this.info = () => {
             return this.title + " by " + this.author + ", " + this.pages + ", " + this.status;
+        }
+        this.getTitle = () => {
+            return this.title;
+        }
+        this.getAuthor = () => {
+            return this.author;
+        }
+        this.getSubtext = () => {
+            return this.pages + ", " + this.status;
         }
     };
 
@@ -37,7 +47,8 @@ addEventListener("DOMContentLoaded", () =>
     addBook(sampleBook2)
 
 
-    tempDiv.textContent = sampleBook.info();
+    tempBook.textContent = sampleBook.getTitle() + sampleBook.getAuthor();
+    tempBookSubtext.textContent = sampleBook.getSubtext();
     displayLibrary()
 
 });
