@@ -112,6 +112,7 @@ button:hover
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding-right: 0.9rem;
     > button 
     {
         margin: 1rem;

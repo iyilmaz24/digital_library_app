@@ -7,11 +7,24 @@ addEventListener("DOMContentLoaded", () =>
     newBookButton = document.getElementById("new-button");
     deleteBookButton = document.getElementById("delete-button");
     libraryDiv = document.getElementById("content-parent-div");
+    formTitle = document.getElementById("title-input");
+    formAuthor = document.getElementById("author-input");
+    formPages = document.getElementById("page-input");
+    formCheck = document.getElementById("checkbox-input");
 
-    // implement creating a book by parsing form inputs here
-    // and passing those parsed form inputs to our createNewBook function
-    createFormButton.addEventListener("click", () => {
-        console.log("form submitted")
+    function resetForm() 
+    {
+        formTitle.value = "";
+        formAuthor.value = "";
+        formPages.value = "";
+        formCheck.checked = false;
+    }
+
+    createFormButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        Book.createNewBook(formTitle.value, formAuthor.value, formPages.value, formCheck.value);
+        resetForm();
+        userForm.close();
     })
     // deleteBookButton.addEventListener("click", )
     // implement deleting a book button functionality
@@ -55,6 +68,11 @@ addEventListener("DOMContentLoaded", () =>
     Book.prototype.getSubtext = function() {
         return this.pages + ", " + this.status;
     }
+    Book.createNewBook = function(title, author, pages, status) {
+        newBook = new Book(title, author, pages, status);
+        addBook(newBook);
+        displayNewBook();
+    }
 
     function addBook(Book)
     {
@@ -91,20 +109,8 @@ addEventListener("DOMContentLoaded", () =>
 
     function displayNewBook()
     {
-        for(let i = myLibrary.length - 1; i < myLibrary.length; i++)
-        {
-            currBook = `<div class="book-with-subtext"><div class="book">${myLibrary[i].getTitle()}</div><div class="book-subtext">${myLibrary[i].getSubtext()}</div></div>`;
-            libraryDiv.innerHTML += currBook;
-        }
+        currBook = `<div class="book-with-subtext"><div class="book">${myLibrary[myLibrary.length-1].getTitle()}</div><div class="book-subtext">${myLibrary[myLibrary.length-1].getSubtext()}</div></div>`;
+        libraryDiv.innerHTML += currBook;
     }
-
-    // parse form input from user and then dynamically create a new book by inserting their inputs into below function 
-    function createNewBook(title, author, pages, status)
-    {
-        newBook = new Book(title, author, pages, status);
-        addBook(newBook);
-        displayNewBook();
-    }
-    createNewBook("Test Book", "Michael", "123", true);
 
 });
