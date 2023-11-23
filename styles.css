@@ -150,3 +150,11 @@ button:hover
     font-size: 0.8rem;
     font-weight: bold;
 }
+
+dialog > form
+{
+    display: flex;
+    flex-direction: column;;
+    justify-content: center;
+    align-items: center;
+}

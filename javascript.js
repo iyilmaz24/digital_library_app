@@ -1,11 +1,38 @@
 addEventListener("DOMContentLoaded", () =>
 {
 
+    userForm = document.getElementById("user-input-form");
+    createFormButton = document.getElementById("submit-button");
+    cancelFormButton = document.getElementById("cancel-button");
+    newBookButton = document.getElementById("new-button");
+    deleteBookButton = document.getElementById("delete-button");
     libraryDiv = document.getElementById("content-parent-div");
 
+    // implement creating a book by parsing form inputs here
+    // and passing those parsed form inputs to our createNewBook function
+    createFormButton.addEventListener("click", () => {
+        console.log("form submitted")
+    })
+    // deleteBookButton.addEventListener("click", )
+    // implement deleting a book button functionality
+    // can cause the clicking of the delete button make a bunch of X's pop up
+    // after clicking an X, book gets deleted and the books all refresh
+    newBookButton.addEventListener("click", ()=> {
+        userForm.showModal();
+    })
+    cancelFormButton.addEventListener("click", () => {
+        userForm.close();
+    })
+
+    // implement a way to change the status of a book from unread to read
+
+
+    // temporary code below
     tempBook = document.getElementsByClassName("book");
     tempBookSubtext = document.getElementsByClassName("book-subtext");
     tempLibrary = document.getElementById("temp-library");
+    // temporary code ^
+
 
     const myLibrary = [];
 

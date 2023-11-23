@@ -20,8 +20,26 @@
     </div>
 
     <div id="new-del-button-div">
-        <button>New</button>
-        <button>Delete</button>
+        <button id="new-button">New</button>
+        <button id="delete-button">Delete</button>
+
+        <dialog id="user-input-form">
+            <form>
+                <div>Create New Book</div>
+                <input type="text" placeholder="Title">
+                <input type="text" placeholder="Author">
+                <input type="number" min="0" placeholder="Page Count">
+                <div>
+                    <label for="checkbox-input">Finished Book</label>
+                    <input id="checkbox-input" type="checkbox">
+                </div>
+                <div>
+                    <button id="submit-button" type="submit">Create</button>
+                    <button id="cancel-button">Cancel</button>
+                </div>
+            </form>
+        </dialog>
+
     </div>
 
     <div id="content-parent-div">
