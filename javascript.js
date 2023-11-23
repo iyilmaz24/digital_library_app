@@ -22,19 +22,37 @@ addEventListener("DOMContentLoaded", () =>
 
     createFormButton.addEventListener("click", (event) => {
         event.preventDefault();
-        Book.createNewBook(formTitle.value, formAuthor.value, formPages.value, formCheck.value);
-        resetForm();
-        userForm.close();
+
+        if(formTitle.value !== "")
+        {
+            if(formAuthor.value == "")
+            {   
+                formAuthor.value = "Unknown";
+            }
+            if(formPages.value == "")
+            {
+                formPages.value = 0;
+            }
+            userForm.close();
+            Book.createNewBook(formTitle.value, formAuthor.value, formPages.value, formCheck.checked);
+            resetForm();
+        }
+        else
+        {
+            console.log("Title is a required field")
+        }
     })
     // deleteBookButton.addEventListener("click", )
     // implement deleting a book button functionality
-    // can cause the clicking of the delete button make a bunch of X's pop up
-    // after clicking an X, book gets deleted and the books all refresh
+    // make a modal pop up and then user can select a book from there through a dropdown list and choose to delete it
     newBookButton.addEventListener("click", ()=> {
         userForm.showModal();
     })
-    cancelFormButton.addEventListener("click", () => {
+    cancelFormButton.addEventListener("click", (event) => {
         userForm.close();
+        resetForm();
+        // below preventDefault is to prevent page refresh and loss of user created books when exiting modal pop up
+        event.preventDefault();
     })
 
     // implement a way to change the status of a book from unread to read
@@ -43,7 +61,6 @@ addEventListener("DOMContentLoaded", () =>
     // temporary code below
     tempBook = document.getElementsByClassName("book");
     tempBookSubtext = document.getElementsByClassName("book-subtext");
-    tempLibrary = document.getElementById("temp-library");
     // temporary code ^
 
 
@@ -53,8 +70,18 @@ addEventListener("DOMContentLoaded", () =>
     {
         this.title = title;
         this.author = author;
-        this.pages = pages + " pages";
         this.status = (status) ? "book read" : "book unread";
+
+        if(pages === "0"){
+            this.pages = null;
+        }
+        else if(pages === "1"){
+            this.pages = pages + " page";
+        }
+        else{
+            this.pages = pages + " pages";
+        }
+
     };
     Book.prototype.info = function() {
         return this.title + " by " + this.author + ", " + this.pages + ", " + this.status;
@@ -66,7 +93,12 @@ addEventListener("DOMContentLoaded", () =>
         return this.author;
     }
     Book.prototype.getSubtext = function() {
-        return this.pages + ", " + this.status;
+        if(this.pages === null){
+            return this.status;
+        }
+        else{
+            return this.pages + ", " + this.status;
+        }
     }
     Book.createNewBook = function(title, author, pages, status) {
         newBook = new Book(title, author, pages, status);
@@ -81,7 +113,7 @@ addEventListener("DOMContentLoaded", () =>
 
     function displayLibrary()
     {
-        tempLibrary.innerHTML = "";
+        // function to write out all contents of library
         for(let i = 0; i < myLibrary.length; i++)
         {
             tempLibrary.innerHTML += (myLibrary[i].info()) + "<br>";
@@ -95,10 +127,10 @@ addEventListener("DOMContentLoaded", () =>
 
     tempBook[0].textContent = sampleBook.info();
     tempBookSubtext[0].textContent = sampleBook.getSubtext();
-    displayLibrary();
 
     function refreshAllBooks()
     {
+        // function to "refresh" all books by emptying 'libraryDiv' and re-adding all books to it
         libraryDiv.innerHTML = "";
         for(let i = 0; i < myLibrary.length; i++)
         {
@@ -109,6 +141,7 @@ addEventListener("DOMContentLoaded", () =>
 
     function displayNewBook()
     {
+        // function to create new HTML code in form of plain text string with last added book's info and then adding that string to the 'libraryDiv'
         currBook = `<div class="book-with-subtext"><div class="book">${myLibrary[myLibrary.length-1].getTitle()}</div><div class="book-subtext">${myLibrary[myLibrary.length-1].getSubtext()}</div></div>`;
         libraryDiv.innerHTML += currBook;
     }
