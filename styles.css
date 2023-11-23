@@ -56,6 +56,12 @@ button:hover
     border-color: crimson;
 }
 
+/* red-border class created for use in JS DOM Manipulation */
+.red-border
+{
+    border-color: crimson;
+}
+
 
 #big-title
 {

@@ -18,6 +18,8 @@ addEventListener("DOMContentLoaded", () =>
         formAuthor.value = "";
         formPages.value = "";
         formCheck.checked = false;
+        formTitle.placeholder = "Title";
+        formTitle.classList.remove("red-border");
     }
 
     createFormButton.addEventListener("click", (event) => {
@@ -39,7 +41,8 @@ addEventListener("DOMContentLoaded", () =>
         }
         else
         {
-            console.log("Title is a required field")
+            formTitle.placeholder = "REQUIRED FIELD";
+            formTitle.classList.add("red-border");
         }
     })
     // deleteBookButton.addEventListener("click", )
@@ -56,9 +59,10 @@ addEventListener("DOMContentLoaded", () =>
     })
 
     // implement a way to change the status of a book from unread to read
+    // can change delete button to an edit button where book can be deleted or status changed
 
 
-    // temporary code below
+    // temporary code below to work on default book styling
     tempBook = document.getElementsByClassName("book");
     tempBookSubtext = document.getElementsByClassName("book-subtext");
     // temporary code ^
