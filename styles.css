@@ -47,8 +47,15 @@ button
 
 button:hover
 {
-    border-color: #ece5d6;
+    transform: scale(1.07);
+    border-color: #dbd0b9;
 }
+
+#delete-button:hover, #cancel-button:hover
+{
+    border-color: crimson;
+}
+
 
 #big-title
 {
@@ -85,7 +92,7 @@ button:hover
     }
     > input:focus 
     {
-        outline-color: #ece5d6;
+        outline-color: #dbd0b9;
     }
     > button 
     {
@@ -151,10 +158,37 @@ button:hover
     font-weight: bold;
 }
 
-dialog > form
+
+/* Styling For Our Pop Up When Creating New Book */
+
+dialog
 {
-    display: flex;
-    flex-direction: column;;
-    justify-content: center;
-    align-items: center;
+    border-radius: 1rem;
+
+    > form
+    {
+        display: flex;
+        flex-direction: column;;
+        justify-content: center;
+        align-items: center;
+        > input 
+        {
+            border: solid 1px black;
+        }
+        > input, div, div > button
+        {
+            border-radius: 0.5rem;
+            margin: 0.5rem;
+            padding: 0.45rem;
+        }
+        > :first-child
+        {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        > input:focus 
+        {
+            outline-color: #dbd0b9;
+        }
+    }
 }
