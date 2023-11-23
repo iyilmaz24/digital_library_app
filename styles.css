@@ -125,10 +125,28 @@ button:hover
     border-bottom-right-radius: 1rem;
 }
 
-#temp-book
+
+/* Book Styling That Will Be Added To Each New Book */
+
+.book-with-subtext
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.book
 {
     height: 10rem;
     width: 7.5rem;
     border: 1px solid black;
     border-radius: 5%;
+}
+
+.book-subtext
+{
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    font-weight: bold;
 }
