@@ -61,13 +61,6 @@ addEventListener("DOMContentLoaded", () =>
     // implement a way to change the status of a book from unread to read
     // can change delete button to an edit button where book can be deleted or status changed
 
-
-    // temporary code below to work on default book styling
-    tempBook = document.getElementsByClassName("book");
-    tempBookSubtext = document.getElementsByClassName("book-subtext");
-    // temporary code ^
-
-
     const myLibrary = [];
 
     function Book(title, author, pages, status)
@@ -123,14 +116,6 @@ addEventListener("DOMContentLoaded", () =>
             tempLibrary.innerHTML += (myLibrary[i].info()) + "<br>";
         };
     }
-
-    sampleBook = new Book("Harry Potter", "Rowling", "500", false);
-    sampleBook2 = new Book("Odin Project", "Open-Source", "3", true);
-    addBook(sampleBook);
-    addBook(sampleBook2);
-
-    tempBook[0].textContent = sampleBook.info();
-    tempBookSubtext[0].textContent = sampleBook.getSubtext();
 
     function refreshAllBooks()
     {
