@@ -6,11 +6,15 @@
     <title>Library App</title>
     <link rel="stylesheet" href="styles.css">
     <script src="javascript.js"></script>
+    <link rel="shortcut icon" href="icons/bookshelf-svgrepo-com.svg" type="image/x-icon">
 </head>
 
 <body>
 
-    <div id="big-title">Digital Library</div>
+    <div id="big-title">
+        Digital Library
+        <img src="icons/bookshelf-svgrepo-com.svg" alt="logo">
+    </div>
 
     <div id="search-bar-div">
         <button>
@@ -41,14 +45,14 @@
         </dialog>
 
     </div>
-
+<!-- Delete this pre-launch and display "Your library is currently empty..." -->
     <div id="content-parent-div">
-        <div class="book-with-subtext">
-            <div class="book">
-                    <div id="book-title">Book Title</div>
-                    <div id="book-author">Book Author</div>
+        <div id="placeholder-div" class="book-with-subtext">
+            <div id="placeholder-book" class="book">
+                    <div id="book-title">Your Library Is Empty!</div>
+                    <div id="book-author">Add A Book</div>
             </div>
-            <div class="book-subtext">Book Subtext</div>
+            <div class="book-subtext">Click The 'New' Button</div>
         </div>
 
     </div>

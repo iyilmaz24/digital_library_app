@@ -70,9 +70,15 @@ button:hover
     font-size: 2.5rem;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    > img
+    {
+        margin-left: 0.75rem;
+        height: 3.5rem;
+        width: 3.5rem;
+    }
 }
 
 #search-bar-div
@@ -166,13 +172,19 @@ button:hover
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
-    background-color: crimson;
+    background-color: rgb(167, 26, 54);
     color: #f3f3f3;
     background-image: url(icons/book_2_FILL0_wght400_GRAD0_opsz24.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-position-y: 4.5rem;
     font-size: 1rem;
+    border-right: #fff solid 0.4rem;
+    border-bottom: #fff solid 0.4rem;
+    outline: black 0.15rem solid;
+    border-top-right-radius: 3%;
+    border-bottom-right-radius: 2%;
+    box-shadow: 0rem 0.1rem 0 #000;
     > div
     {   
         font-style: italic;
@@ -189,7 +201,7 @@ button:hover
 
 .book-subtext
 {
-    margin-top: 0.25rem;
+    margin-top: 0.35rem;
     font-size: 0.8rem;
 }
 
@@ -226,4 +238,22 @@ dialog
             outline-color: #dbd0b9;
         }
     }
+}
+
+
+/* Special color changing effect for our placeholder book */
+
+@keyframes colorChanging {
+    0%   {background-color: rgb(48, 43, 116);}
+    25%  {background-color: rgb(117, 21, 63);}
+    50%  {background-color: rgb(108, 33, 146);}
+    75%   {background-color: rgb(15, 89, 185);}
+    100%   {background-color: rgb(48, 43, 116);} 
+}
+
+#placeholder-book {
+    background-color: red;
+    animation-name: colorChanging;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
 }

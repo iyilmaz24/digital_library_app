@@ -11,9 +11,10 @@ addEventListener("DOMContentLoaded", () =>
     formAuthor = document.getElementById("author-input");
     formPages = document.getElementById("page-input");
     formCheck = document.getElementById("checkbox-input");
+    placeHolderBook = document.getElementById("placeholder-div");
 
 
-    
+
 // The code that manages our form inputs and creates new books
 
     function resetForm() 
@@ -141,6 +142,7 @@ addEventListener("DOMContentLoaded", () =>
     }
     function displayNewBook()
     {
+        placeHolderBook.style.display = "none";
         // function to create new HTML code in form of plain text string with last added book's info
         currBook = `<div class="book-with-subtext"><div class="book"><div id="book-title">${myLibrary[myLibrary.length-1].getTitle()}</div><div id="book-author">${myLibrary[myLibrary.length-1].getAuthor()}</div></div><div class="book-subtext">${myLibrary[myLibrary.length-1].getSubtext()}</div></div>`;
         libraryDiv.innerHTML += currBook;
