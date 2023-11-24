@@ -138,7 +138,7 @@ addEventListener("DOMContentLoaded", () =>
         libraryDiv.innerHTML = "";
         for(let i = 0; i < myLibrary.length; i++)
         {
-            currBook = `<div class="book-with-subtext"><div class="book">${myLibrary[i].getTitle()}</div><div class="book-subtext">${myLibrary[i].getSubtext()}</div></div>`;
+            currBook = `<div class="book-with-subtext"><div class="book"><div id="book-title">${myLibrary[myLibrary.length-1].getTitle()}</div><div id="book-author">${myLibrary[myLibrary.length-1].getAuthor()}</div></div><div class="book-subtext">${myLibrary[myLibrary.length-1].getSubtext()}</div></div>`;
             libraryDiv.innerHTML += currBook;
         }
     }
@@ -146,7 +146,7 @@ addEventListener("DOMContentLoaded", () =>
     function displayNewBook()
     {
         // function to create new HTML code in form of plain text string with last added book's info and then adding that string to the 'libraryDiv'
-        currBook = `<div class="book-with-subtext"><div class="book">${myLibrary[myLibrary.length-1].getTitle()}</div><div class="book-subtext">${myLibrary[myLibrary.length-1].getSubtext()}</div></div>`;
+        currBook = `<div class="book-with-subtext"><div class="book"><div id="book-title">${myLibrary[myLibrary.length-1].getTitle()}</div><div id="book-author">${myLibrary[myLibrary.length-1].getAuthor()}</div></div><div class="book-subtext">${myLibrary[myLibrary.length-1].getSubtext()}</div></div>`;
         libraryDiv.innerHTML += currBook;
     }
 
