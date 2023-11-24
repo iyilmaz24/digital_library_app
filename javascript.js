@@ -12,6 +12,10 @@ addEventListener("DOMContentLoaded", () =>
     formPages = document.getElementById("page-input");
     formCheck = document.getElementById("checkbox-input");
 
+
+    
+// The code that manages our form inputs and creates new books
+
     function resetForm() 
     {
         formTitle.value = "";
@@ -21,7 +25,6 @@ addEventListener("DOMContentLoaded", () =>
         formTitle.placeholder = "Title";
         formTitle.classList.remove("red-border");
     }
-
     createFormButton.addEventListener("click", (event) => {
         event.preventDefault();
 
@@ -61,7 +64,27 @@ addEventListener("DOMContentLoaded", () =>
     // implement a way to change the status of a book from unread to read
     // can change delete button to an edit button where book can be deleted or status changed
 
+
+
+// our myLibrary array used to store Book objects and it's related helper functions
+
     const myLibrary = [];
+    function addBook(Book)
+    {
+        myLibrary.push(Book);
+    }
+    function displayLibrary()
+    {
+        // function to write out all contents of library
+        for(let i = 0; i < myLibrary.length; i++)
+        {
+            tempLibrary.innerHTML += (myLibrary[i].info()) + "<br>";
+        };
+    }
+
+
+
+// Our book constructor with all it's prototype methods and it's static helper method
 
     function Book(title, author, pages, status)
     {
@@ -78,7 +101,6 @@ addEventListener("DOMContentLoaded", () =>
         else{
             this.pages = pages + " pages";
         }
-
     };
     Book.prototype.info = function() {
         return this.title + " by " + this.author + ", " + this.pages + ", " + this.status;
@@ -103,19 +125,9 @@ addEventListener("DOMContentLoaded", () =>
         displayNewBook();
     }
 
-    function addBook(Book)
-    {
-        myLibrary.push(Book);
-    }
 
-    function displayLibrary()
-    {
-        // function to write out all contents of library
-        for(let i = 0; i < myLibrary.length; i++)
-        {
-            tempLibrary.innerHTML += (myLibrary[i].info()) + "<br>";
-        };
-    }
+
+// Functions to create our HTML code pre-insertion to our index.html document
 
     function refreshAllBooks()
     {
@@ -127,12 +139,12 @@ addEventListener("DOMContentLoaded", () =>
             libraryDiv.innerHTML += currBook;
         }
     }
-
     function displayNewBook()
     {
-        // function to create new HTML code in form of plain text string with last added book's info and then adding that string to the 'libraryDiv'
+        // function to create new HTML code in form of plain text string with last added book's info
         currBook = `<div class="book-with-subtext"><div class="book"><div id="book-title">${myLibrary[myLibrary.length-1].getTitle()}</div><div id="book-author">${myLibrary[myLibrary.length-1].getAuthor()}</div></div><div class="book-subtext">${myLibrary[myLibrary.length-1].getSubtext()}</div></div>`;
         libraryDiv.innerHTML += currBook;
     }
+
 
 });
