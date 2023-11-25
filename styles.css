@@ -211,7 +211,7 @@ button:hover
 }
 
 
-/* Styling For Our Pop Up When Creating New Book */
+/* Styling For Our Pop Up When Creating Or Editing A Book */
 
 dialog
 {
@@ -245,6 +245,35 @@ dialog
     }
 }
 
+
+/* Specific Styling For Our Pop Up When Editing A Existing Book */
+
+#book-select-span
+{
+    margin: 1rem;
+}
+
+#edit-form-radio-option-div, #edit-options-div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.label-display-on-side
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#book-choice-dropdown
+{
+    width: 6rem;
+}
 
 /* Special color changing effect for our placeholder book */
 

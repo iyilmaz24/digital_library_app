@@ -47,28 +47,38 @@
         <dialog id="user-edit-form">
             <form>
                 <div>Make A Change</div>
-                
-                <label for="book-choice-dropdown">Select Book</label>
-                <select id="book-choice-dropdown">
-                    <option>You Do Not Have Any Books</option>
-                </select>
-                <div id="edit-form-radio-option-div">
-                    <label for="delete-option">Delete Book</label>
-                    <input name="edit-or-delete" id="delete-option" type="radio">
-                    <label for="edit-option">Edit Book</label>
-                    <input name="edit-or-delete" id="edit-option" type="radio">
-                </div>
-                <div id="edit-options">
-                    <label for="edit-color-choice">Color</label>
-                    <select id="edit-color-choice" name="edit-color-choice">
-                        <option value="rgb(167, 26, 54)">Red</option>
-                        <option value="rgb(15, 89, 185)">Blue</option>
-                        <option value="rgb(108, 33, 146)">Purple</option>
-                        <option value="rgb(114, 67, 33)">Brown</option>
-                        <option value="rgb(32, 89, 26)">Green</option>
+                <span class="label-display-on-side" id="book-select-span">
+                    <label for="book-choice-dropdown">Book:</label>
+                    <select id="book-choice-dropdown">
+                        <option>You Do Not Have Any Books</option>
                     </select>
-                    <label for="edit-status-checkbox">Finished Book</label>
-                    <input id="edit-status-checkbox" type="checkbox">
+                </span>
+
+                <div id="edit-form-radio-option-div">
+                    <span class="label-display-on-side">
+                        <label for="delete-option">Delete Book</label>
+                        <input name="edit-or-delete" id="delete-option" type="radio">
+                    </span>
+                    <span class="label-display-on-side">
+                        <label for="edit-option">Edit Book</label>
+                        <input name="edit-or-delete" id="edit-option" type="radio">
+                    </span>
+                </div>
+                <div id="edit-options-div">
+                    <span class="label-display-on-side">
+                        <label for="edit-color-choice">Color</label>
+                        <select id="edit-color-choice" name="edit-color-choice">
+                            <option value="rgb(167, 26, 54)">Red</option>
+                            <option value="rgb(15, 89, 185)">Blue</option>
+                            <option value="rgb(108, 33, 146)">Purple</option>
+                            <option value="rgb(114, 67, 33)">Brown</option>
+                            <option value="rgb(32, 89, 26)">Green</option>
+                        </select>
+                    </span>
+                    <span class="label-display-on-side">
+                        <label for="edit-status-checkbox">Finished Book</label>
+                        <input id="edit-status-checkbox" type="checkbox">
+                    </span>
                 </div>
                 <div>
                     <button id="submit-button2" type="submit">Confirm</button>
