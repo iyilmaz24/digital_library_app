@@ -51,7 +51,7 @@ button:hover
     border-color: #dbd0b9;
 }
 
-#delete-button:hover, #cancel-button:hover
+#edit-button:hover, #cancel-button:hover
 {
     border-color: crimson;
 }
@@ -201,8 +201,13 @@ button:hover
 
 .book-subtext
 {
-    margin-top: 0.35rem;
-    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 10rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
 }
 
 

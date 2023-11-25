@@ -4,8 +4,11 @@ addEventListener("DOMContentLoaded", () =>
     userForm = document.getElementById("user-input-form");
     createFormButton = document.getElementById("submit-button");
     cancelFormButton = document.getElementById("cancel-button");
+    userEditForm = document.getElementById("user-edit-form");
+    createFormButton2 = document.getElementById("submit-button2");
+    cancelFormButton2 = document.getElementById("cancel-button2");
     newBookButton = document.getElementById("new-button");
-    deleteBookButton = document.getElementById("delete-button");
+    editBookButton = document.getElementById("edit-button");
     libraryDiv = document.getElementById("content-parent-div");
     formTitle = document.getElementById("title-input");
     formAuthor = document.getElementById("author-input");
@@ -49,7 +52,22 @@ addEventListener("DOMContentLoaded", () =>
             formTitle.classList.add("red-border");
         }
     })
-    // deleteBookButton.addEventListener("click", )
+
+    editBookButton.addEventListener("click", (event) => {
+        userEditForm.showModal();
+    })
+    createFormButton2.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        // implement functionality of editing book here
+            // delete a book
+            // change read status of a book
+            // change a book's color
+    
+        userEditForm.close();
+        resetForm();
+    })
+
     // implement deleting a book button functionality
     // make a modal pop up and then user can select a book from there through a dropdown list and choose to delete it
     newBookButton.addEventListener("click", ()=> {
@@ -57,6 +75,12 @@ addEventListener("DOMContentLoaded", () =>
     })
     cancelFormButton.addEventListener("click", (event) => {
         userForm.close();
+        resetForm();
+        // below preventDefault is to prevent page refresh and loss of user created books when exiting modal pop up
+        event.preventDefault();
+    })
+    cancelFormButton2.addEventListener("click", (event) => {
+        userEditForm.close();
         resetForm();
         // below preventDefault is to prevent page refresh and loss of user created books when exiting modal pop up
         event.preventDefault();
@@ -91,16 +115,16 @@ addEventListener("DOMContentLoaded", () =>
     {
         this.title = title;
         this.author = author;
-        this.status = (status) ? "book read" : "book unread";
+        this.status = (status) ? "Book Read" : "Book Unread";
 
         if(pages === "0"){
             this.pages = null;
         }
         else if(pages === "1"){
-            this.pages = pages + " page";
+            this.pages = pages + " Page";
         }
         else{
-            this.pages = pages + " pages";
+            this.pages = pages + " Pages";
         }
     };
     Book.prototype.info = function() {

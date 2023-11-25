@@ -25,14 +25,14 @@
 
     <div id="new-del-button-div">
         <button id="new-button">New</button>
-        <button id="delete-button">Delete</button>
+        <button id="edit-button">Edit</button>
 
         <dialog id="user-input-form">
             <form>
                 <div>Create New Book</div>
                 <input id="title-input" type="text" placeholder="Title">
                 <input id="author-input" type="text" placeholder="Author">
-                <input id="page-input" type="number" min="0" placeholder="Page Count">
+                <input id="page-input" type="number" placeholder="Page Count">
                 <div>
                     <label for="checkbox-input">Finished Book</label>
                     <input id="checkbox-input" type="checkbox">
@@ -40,6 +40,23 @@
                 <div>
                     <button id="submit-button" type="submit">Create</button>
                     <button id="cancel-button">Cancel</button>
+                </div>
+            </form>
+        </dialog>
+
+        <dialog id="user-edit-form">
+            <form>
+                <div>Edit Book</div>
+                <input id="title-input" type="text" placeholder="Title">
+                <input id="author-input" type="text" placeholder="Author">
+                <input id="page-input" type="number" placeholder="Page Count">
+                <div>
+                    <label for="checkbox-input">Finished Book</label>
+                    <input id="checkbox-input" type="checkbox">
+                </div>
+                <div>
+                    <button id="submit-button2" type="submit">Create</button>
+                    <button id="cancel-button2">Cancel</button>
                 </div>
             </form>
         </dialog>
