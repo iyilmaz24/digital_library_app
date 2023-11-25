@@ -46,16 +46,32 @@
 
         <dialog id="user-edit-form">
             <form>
-                <div>Edit Book</div>
-                <input id="title-input" type="text" placeholder="Title">
-                <input id="author-input" type="text" placeholder="Author">
-                <input id="page-input" type="number" placeholder="Page Count">
-                <div>
-                    <label for="checkbox-input">Finished Book</label>
-                    <input id="checkbox-input" type="checkbox">
+                <div>Make A Change</div>
+                
+                <label for="book-choice-dropdown">Select Book</label>
+                <select id="book-choice-dropdown">
+                    <option>You Do Not Have Any Books</option>
+                </select>
+                <div id="edit-form-radio-option-div">
+                    <label for="delete-option">Delete Book</label>
+                    <input name="edit-or-delete" id="delete-option" type="radio">
+                    <label for="edit-option">Edit Book</label>
+                    <input name="edit-or-delete" id="edit-option" type="radio">
+                </div>
+                <div id="edit-options">
+                    <label for="edit-color-choice">Color</label>
+                    <select id="edit-color-choice" name="edit-color-choice">
+                        <option value="rgb(167, 26, 54)">Red</option>
+                        <option value="rgb(15, 89, 185)">Blue</option>
+                        <option value="rgb(108, 33, 146)">Purple</option>
+                        <option value="rgb(114, 67, 33)">Brown</option>
+                        <option value="rgb(32, 89, 26)">Green</option>
+                    </select>
+                    <label for="edit-status-checkbox">Finished Book</label>
+                    <input id="edit-status-checkbox" type="checkbox">
                 </div>
                 <div>
-                    <button id="submit-button2" type="submit">Create</button>
+                    <button id="submit-button2" type="submit">Confirm</button>
                     <button id="cancel-button2">Cancel</button>
                 </div>
             </form>

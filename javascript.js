@@ -1,20 +1,29 @@
 addEventListener("DOMContentLoaded", () =>
 {
-
-    userForm = document.getElementById("user-input-form");
-    createFormButton = document.getElementById("submit-button");
-    cancelFormButton = document.getElementById("cancel-button");
-    userEditForm = document.getElementById("user-edit-form");
-    createFormButton2 = document.getElementById("submit-button2");
-    cancelFormButton2 = document.getElementById("cancel-button2");
-    newBookButton = document.getElementById("new-button");
-    editBookButton = document.getElementById("edit-button");
+    // the div where all created books will display, and the starting book
     libraryDiv = document.getElementById("content-parent-div");
+    placeHolderBook = document.getElementById("placeholder-div");
+
+    // all elements needed to create a new book
+    newBookButton = document.getElementById("new-button");
+    userForm = document.getElementById("user-input-form");
     formTitle = document.getElementById("title-input");
     formAuthor = document.getElementById("author-input");
     formPages = document.getElementById("page-input");
     formCheck = document.getElementById("checkbox-input");
-    placeHolderBook = document.getElementById("placeholder-div");
+    createFormButton = document.getElementById("submit-button");
+    cancelFormButton = document.getElementById("cancel-button");
+
+    // all elements needed to edit a existing book
+    editBookButton = document.getElementById("edit-button");
+    userEditForm = document.getElementById("user-edit-form");
+    
+    createFormButton2 = document.getElementById("submit-button2");
+    cancelFormButton2 = document.getElementById("cancel-button2");
+
+
+
+
 
 
 
@@ -58,6 +67,7 @@ addEventListener("DOMContentLoaded", () =>
     })
     createFormButton2.addEventListener("click", (event) => {
         event.preventDefault();
+
 
         // implement functionality of editing book here
             // delete a book
