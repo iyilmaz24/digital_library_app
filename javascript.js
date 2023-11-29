@@ -11,15 +11,20 @@ addEventListener("DOMContentLoaded", () =>
     formAuthor = document.getElementById("author-input");
     formPages = document.getElementById("page-input");
     formCheck = document.getElementById("checkbox-input");
-    createFormButton = document.getElementById("submit-button");
-    cancelFormButton = document.getElementById("cancel-button");
+    createFormButtonN = document.getElementById("submit-button");
+    cancelFormButtonN = document.getElementById("cancel-button");
 
     // all elements needed to edit a existing book
     editBookButton = document.getElementById("edit-button");
     userEditForm = document.getElementById("user-edit-form");
+
+    deleteOption = document.getElementById("delete-option");
+    editOption = document.getElementById("edit-option");
+    editChoices = document.getElementById("edit-options-div");
+    chooseBook = document.getElementById("book-choice-dropdown");
     
-    createFormButton2 = document.getElementById("submit-button2");
-    cancelFormButton2 = document.getElementById("cancel-button2");
+    createFormButtonNE = document.getElementById("submit-button2");
+    cancelFormButtonNE = document.getElementById("cancel-button2");
 
 
 
@@ -29,16 +34,26 @@ addEventListener("DOMContentLoaded", () =>
 
 // The code that manages our form inputs and creates new books
 
-    function resetForm() 
+    function resetForm(formType) 
     {
-        formTitle.value = "";
-        formAuthor.value = "";
-        formPages.value = "";
-        formCheck.checked = false;
-        formTitle.placeholder = "Title";
-        formTitle.classList.remove("red-border");
+        if(formType == "new")
+        {
+            formTitle.value = "";
+            formAuthor.value = "";
+            formPages.value = "";
+            formCheck.checked = false;
+            formTitle.placeholder = "Title";
+            formTitle.classList.remove("red-border");
+        }
+        else if (formNum == "edit") 
+        {
+            deleteOption.checked = false;
+            editOption.checked = false;
+            chooseBook.selectedIndex = -1;
+        }
+
     }
-    createFormButton.addEventListener("click", (event) => {
+    createFormButtonN.addEventListener("click", (event) => {
         event.preventDefault();
 
         if(formTitle.value !== "")
@@ -53,7 +68,7 @@ addEventListener("DOMContentLoaded", () =>
             }
             userForm.close();
             Book.createNewBook(formTitle.value, formAuthor.value, formPages.value, formCheck.checked);
-            resetForm();
+            resetForm("new");
         }
         else
         {
@@ -64,10 +79,10 @@ addEventListener("DOMContentLoaded", () =>
 
     editBookButton.addEventListener("click", (event) => {
         userEditForm.showModal();
+        editChoices.style.display = "none";
     })
-    createFormButton2.addEventListener("click", (event) => {
+    createFormButtonNE.addEventListener("click", (event) => {
         event.preventDefault();
-
 
         // implement functionality of editing book here
             // delete a book
@@ -75,30 +90,32 @@ addEventListener("DOMContentLoaded", () =>
             // change a book's color
     
         userEditForm.close();
-        resetForm();
+        resetForm("edit");
     })
 
-    // implement deleting a book button functionality
-    // make a modal pop up and then user can select a book from there through a dropdown list and choose to delete it
-    newBookButton.addEventListener("click", ()=> {
+    // show and hide the edit options depending on radio button selection
+    editOption.addEventListener("change", () => {
+        editChoices.style.display = "flex";
+    })
+    deleteOption.addEventListener("change", () => {
+        editChoices.style.display = "none";
+    })
+
+    newBookButton.addEventListener("click", () => {
         userForm.showModal();
     })
-    cancelFormButton.addEventListener("click", (event) => {
+    cancelFormButtonN.addEventListener("click", (event) => {
         userForm.close();
-        resetForm();
+        resetForm("new");
         // below preventDefault is to prevent page refresh and loss of user created books when exiting modal pop up
         event.preventDefault();
     })
-    cancelFormButton2.addEventListener("click", (event) => {
+    cancelFormButtonNE.addEventListener("click", (event) => {
         userEditForm.close();
-        resetForm();
+        resetForm("edit");
         // below preventDefault is to prevent page refresh and loss of user created books when exiting modal pop up
         event.preventDefault();
     })
-
-    // implement a way to change the status of a book from unread to read
-    // can change delete button to an edit button where book can be deleted or status changed
-
 
 
 // our myLibrary array used to store Book objects and it's related helper functions
